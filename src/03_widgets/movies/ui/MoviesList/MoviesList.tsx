@@ -2,10 +2,10 @@ import MoviesCard from "@/05_entities/MoviesCard/ui/MoviesCard";
 import { getMovies } from "@/06_shared/api/apiMovies";
 import { useState, useEffect } from "react";
 import styles from "./MoviesList.module.css";
-
+import { Item } from "../../model/types";
 
 function MoviesList() {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState<Item[]>([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
