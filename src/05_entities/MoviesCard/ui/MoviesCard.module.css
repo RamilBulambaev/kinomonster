@@ -1,0 +1,26 @@
+.container {
+  width: 250px;
+  /* height: 450px; */
+}
+
+.name {
+  display: inline-block;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.year {
+  font-size: 16px;
+  color: #151515;
+  opacity: 0.3;
+}
+
+.rate {
+  font-size: 16px;
+  color: #ffd233;
+}

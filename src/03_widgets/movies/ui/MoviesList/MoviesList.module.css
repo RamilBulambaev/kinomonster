@@ -1,0 +1,21 @@
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15px;
+}
+
+.navigate-menu {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.nav-list {
+  display: flex;
+  list-style-type: none;
+}
+
+.nav-item {
+  font-size: 18px;
+  padding-right: 30px;
+}
