@@ -1,9 +1,11 @@
-import { MainPage } from "@/02_pages/main";
+import { Header } from "@/03_widgets/header";
+import { Outlet } from "react-router-dom";
 
 function BaseLayout() {
   return (
     <>
-      <MainPage />
+    <Header />
+      <Outlet />
     </>
   );
 }
