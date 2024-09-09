@@ -1,5 +1,5 @@
 import MoviesCard from "@/05_entities/MoviesCard/ui/MoviesCard";
-import { getMovies } from "@/06_shared/api/apiMovies";
+import { getPopularMovies } from "@/06_shared/api/apiMovies";
 import { useState, useEffect } from "react";
 import styles from "./MoviesList.module.css";
 import { Item } from "../../model/types";
@@ -10,7 +10,7 @@ function MoviesList() {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const movies = await getMovies();
+        const movies = await getPopularMovies();
         console.log(movies);
         setMovies(movies.items.slice(0, 8));
       } catch (error) {
