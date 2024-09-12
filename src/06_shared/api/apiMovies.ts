@@ -48,3 +48,20 @@ export const getPremieres = async () => {
     console.log(error);
   }
 };
+
+export const getMovie = async (id: string) => {
+  try {
+    const response = await axios.request({
+      method: "GET",
+      url: `${BASE_URL}/${id}`,
+      headers: {
+        accept: "application/json",
+        "X-API-KEY": API_KEY,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
