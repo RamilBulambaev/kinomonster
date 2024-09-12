@@ -40,6 +40,7 @@ function MoviesList() {
               year={movie.year}
               nameRu={movie.nameRu}
               rate={movie.ratingKinopoisk}
+              id={movie.kinopoiskId}
             />
           ))}
       </div>
