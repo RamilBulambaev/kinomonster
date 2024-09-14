@@ -1,6 +1,7 @@
 import { useAppSelector } from "@/01_app/appStore";
 import styles from "./MovieInfo.module.css";
 import Image from "@/06_shared/ui/Image/Image";
+import MovieWatchButtons from "@/05_entities/Movie/ui/MovieWatchButtons/MovieWatchButtons";
 
 function MovieInfo() {
   const movie = useAppSelector((state) => state.movie.movie);
@@ -13,9 +14,10 @@ function MovieInfo() {
     <>
       <div className={styles.left}>
         <Image url={movie.posterUrlPreview} alt={movie.nameRu} type="poster" />
-        <a href={movie.webUrl} target="_blank">
-          <button className={styles.button}>Смотреть</button>
-        </a>
+        <div className={styles.wathsLink}>
+          <h2>Смотреть на:</h2>
+          <MovieWatchButtons />
+        </div>
       </div>
       <div className={styles.right}>
         <h1>{movie.nameRu}</h1>
