@@ -1,6 +1,6 @@
 import styles from "./Image.module.css";
 
-type ImageType = "banner" | "card";
+type ImageType = "banner" | "card" | "poster";
 
 interface ImageProps {
   url: string;
