@@ -1,24 +1,29 @@
 import MoviesCard from "@/05_entities/MoviesCard/ui/MoviesCard";
-import { getPopularMovies } from "@/06_shared/api/apiMovies";
-import { useState, useEffect } from "react";
 import styles from "./MoviesList.module.css";
-import { Item } from "../../model/types";
+import { useGetMoviesQuery } from "@/05_entities/Movie/api/moviesApi";
+import { useAppDispatch, useAppSelector } from "@/01_app/appStore";
+import { setMovies } from "@/05_entities/Movie/model/moviesSlice";
+import { useEffect } from "react";
 
 function MoviesList() {
-  const [movies, setMovies] = useState<Item[]>([]);
+  const { data, error, isLoading } = useGetMoviesQuery();
+  const dispath = useAppDispatch();
+  const movies = useAppSelector((state) => state.movies.movies);
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const movies = await getPopularMovies();
-        console.log(movies);
-        setMovies(movies.items.slice(0, 8));
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchMovies();
-  }, []);
+    if (data?.items) {
+      dispath(setMovies(data?.items));
+    }
+  }, [data, dispath]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error loading movies</div>;
+  }
+
   return (
     <section>
       <div className={styles["navigate-menu"]}>
