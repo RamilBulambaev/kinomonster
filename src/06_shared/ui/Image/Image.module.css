@@ -9,3 +9,7 @@
   height: 350px;
   border-radius: 10px;
 }
+
+.poster {
+  max-width: 300px;
+}
