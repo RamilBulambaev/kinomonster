@@ -1,4 +1,4 @@
-export interface RootInterface {
+export interface ItemInterface {
   total: number;
   totalPages: number;
   items: Item[];
