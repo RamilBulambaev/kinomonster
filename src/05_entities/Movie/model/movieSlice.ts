@@ -1,12 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IMovie } from "./type";
+import { ExternalSource, IMovie } from "./type";
 
 export interface MovieState {
   movie: IMovie | null;
+  externalSource: ExternalSource[] | null;
 }
 
 const initialState: MovieState = {
   movie: null,
+  externalSource: null,
 };
 
 export const movieSlice = createSlice({
@@ -16,9 +18,12 @@ export const movieSlice = createSlice({
     setMovie: (state, action: PayloadAction<IMovie>) => {
       state.movie = action.payload;
     },
+    setExternalSource: (state, action: PayloadAction<ExternalSource[]>) => {
+      state.externalSource = action.payload;
+    },
   },
 });
 
-export const { setMovie } = movieSlice.actions;
+export const { setMovie, setExternalSource } = movieSlice.actions;
 
 export default movieSlice.reducer;

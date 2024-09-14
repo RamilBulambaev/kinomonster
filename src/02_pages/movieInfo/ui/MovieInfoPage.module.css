@@ -1,7 +1,11 @@
 .container {
   width: 1140px;
   margin: 0 auto;
+}
+
+.info {
   display: flex;
   justify-content: center;
   gap: 50px;
+  margin-bottom: 50px;
 }
