@@ -1,4 +1,9 @@
-import { IMovie } from "@/05_entities/Movie/model/type";
+import {
+  ExternalSourceInterface,
+  ImagesInterface,
+  IMovie,
+  RelatedMoviesInterface,
+} from "@/05_entities/Movie/model/type";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const BASE_URL = import.meta.env.VITE_MOVIES_BASE_API_URL;
@@ -19,7 +24,45 @@ export const movieApi = createApi({
         };
       },
     }),
+    getmovieExternalSource: builder.query<ExternalSourceInterface, string>({
+      query: (id) => {
+        return {
+          url: `${id}/external_sources`,
+          headers: {
+            accept: "application/json",
+            "X-API-KEY": API_KEY,
+          },
+        };
+      },
+    }),
+    getMovieImages: builder.query<ImagesInterface, string>({
+      query: (id) => {
+        return {
+          url: `${id}/images`,
+          headers: {
+            accept: "application/json",
+            "X-API-KEY": API_KEY,
+          },
+        };
+      },
+    }),
+    getRelatedMovies: builder.query<RelatedMoviesInterface, string>({
+      query: (id) => {
+        return {
+          url: `${id}/similars`,
+          headers: {
+            accept: "application/json",
+            "X-API-KEY": API_KEY,
+          },
+        };
+      },
+    }),
   }),
 });
 
-export const { useGetMovieQuery } = movieApi;
+export const {
+  useGetMovieQuery,
+  useGetmovieExternalSourceQuery,
+  useGetMovieImagesQuery,
+  useGetRelatedMoviesQuery,
+} = movieApi;

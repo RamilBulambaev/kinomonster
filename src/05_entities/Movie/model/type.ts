@@ -53,3 +53,45 @@ export interface IMovieGenre {
 export interface IMovieCountry {
   country: string;
 }
+
+export interface ExternalSourceInterface {
+  total: number;
+  items: ExternalSource[];
+}
+
+export interface ExternalSource {
+  url: string;
+  platform: string;
+  logoUrl: string;
+  positiveRating: number;
+  negativeRating: number;
+  author: string;
+  title: string;
+  description: string;
+}
+
+export interface ImagesInterface {
+  total: number;
+  totalPages: number;
+  items: Image[];
+}
+
+export interface Image {
+  imageUrl: string;
+  previewUrl: string;
+}
+
+export interface RelatedMoviesInterface {
+  total: number;
+  items: Related[];
+}
+
+export interface Related {
+  filmId: number;
+  nameRu: string;
+  nameEn: string;
+  nameOriginal: string;
+  posterUrl: string;
+  posterUrlPreview: string;
+  relationType: string;
+}
