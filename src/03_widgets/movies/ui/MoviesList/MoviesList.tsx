@@ -1,9 +1,9 @@
-import MoviesCard from "@/05_entities/MoviesCard/ui/MoviesCard";
 import styles from "./MoviesList.module.css";
-import { useGetMoviesQuery } from "@/05_entities/Movie/api/moviesApi";
+import { useGetMoviesQuery } from "@/05_entities/MovieList/api/moviesApi";
 import { useAppDispatch, useAppSelector } from "@/01_app/appStore";
-import { setMovies } from "@/05_entities/Movie/model/moviesSlice";
 import { useEffect } from "react";
+import { setMovies } from "@/05_entities/MovieList/model/moviesSlice";
+import { MoviesCard } from "@/05_entities/MoviesCard";
 
 function MoviesList() {
   const { data, error, isLoading } = useGetMoviesQuery();
