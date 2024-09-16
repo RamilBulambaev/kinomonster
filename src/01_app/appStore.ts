@@ -1,4 +1,5 @@
 import { movieApi } from "@/05_entities/Movie/api/movieApi";
+import { staffApi } from "@/05_entities/Movie/api/staffApi";
 import movieReducer from "@/05_entities/Movie/model/movieSlice";
 import { moviesApi } from "@/05_entities/MovieList/api/moviesApi";
 import moviesReducer from "@/05_entities/MovieList/model/moviesSlice";
@@ -12,11 +13,13 @@ export const store = configureStore({
     movies: moviesReducer,
     [moviesApi.reducerPath]: moviesApi.reducer,
     [movieApi.reducerPath]: movieApi.reducer,
+    [staffApi.reducerPath]: staffApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
       .concat(moviesApi.middleware)
       .concat(movieApi.middleware)
+      .concat(staffApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

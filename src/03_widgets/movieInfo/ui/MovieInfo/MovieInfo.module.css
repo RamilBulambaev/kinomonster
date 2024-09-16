@@ -1,14 +1,7 @@
-.right {
+.main {
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-.detailsContainer {
-  display: grid;
-  grid-template-columns: 0.5fr 1fr;
-  row-gap: 15px;
-  max-width: 600px;
 }
 
 .wathsLink {
@@ -19,22 +12,19 @@
   margin-bottom: 15px;
 }
 
-.title {
-  display: inline-block;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.rate {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.detailItem {
-  display: contents;
+.rate-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.label {
-  text-align: left;
-  color: #9b9b9b;
-}
-
-.value {
-  text-align: left;
+.rate-source {
+  font-size: 18px;
+  color: #ffd700;
 }

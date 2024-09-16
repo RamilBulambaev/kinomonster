@@ -34,7 +34,7 @@ function MoviesList() {
             <li className={styles["nav-item"]}>Подборка фильмов</li>
           </ul>
         </nav>
-        <a href="#">Смотреть все</a>
+        <a href="#">{"Смотреть все >"}</a>
       </div>
       <div className={styles.list}>
         {movies &&

@@ -95,3 +95,13 @@ export interface Related {
   posterUrlPreview: string;
   relationType: string;
 }
+
+export interface StaffInterface {
+  staffId: number;
+  nameRu: string;
+  nameEn: string;
+  description?: string;
+  posterUrl: string;
+  professionText: string;
+  professionKey: string;
+}
