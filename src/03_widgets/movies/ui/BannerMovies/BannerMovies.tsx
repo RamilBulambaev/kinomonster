@@ -1,5 +1,6 @@
 import Image from "@/06_shared/ui/Image/Image";
 import styles from "./BannerMovies.module.css";
+import Button from "@/06_shared/ui/button/Button";
 
 function BannerMovies() {
   return (
@@ -13,7 +14,7 @@ function BannerMovies() {
             сталкивается с самой ужасающей формой жизни во Вселенной.
           </p>
         </div>
-        <button className={styles.button}>Смотреть</button>
+        <Button>Смотреть</Button>
       </div>
       <div className={styles.right}>
         <Image

@@ -1,0 +1,25 @@
+.detailsContainer {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  row-gap: 15px;
+  max-width: 600px;
+}
+
+.detailItem {
+  display: contents;
+}
+
+.title {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.label {
+  text-align: left;
+  color: #9b9b9b;
+}
+
+.value {
+  text-align: left;
+}

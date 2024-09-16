@@ -10,6 +10,7 @@ import RelatedMovies from "@/03_widgets/movieInfo/ui/RelatedMovies/RelatedMovies
 function MovieInfoPage() {
   const { id } = useParams();
   const { data, error, isLoading } = useGetMovieQuery(id || "");
+
   const dispatch = useAppDispatch();
 
   useEffect(() => {
