@@ -1,5 +1,19 @@
-.container {
+.title {
+  margin-bottom: 20px;
+}
+
+.images {
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalSlider {
+  width: 80%;
+  height: 80%;
+}
+
+.modalImage {
+  width: 850px;
+  height: 850px;
 }

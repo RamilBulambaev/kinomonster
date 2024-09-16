@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { setExternalSource } from "../../model/movieSlice";
 import IconLink from "@/06_shared/ui/IconLink/IconLink";
 import styles from "./MovieWatchButtons.module.css";
+import { v4 as uuidv4 } from "uuid";
 
 function MovieWatchButtons() {
   const { id } = useParams();
@@ -27,9 +28,9 @@ function MovieWatchButtons() {
 
   return (
     <div className={styles.container}>
-      {data?.items.map((item, index) => (
+      {data?.items.map((item) => (
         <IconLink
-          key={index + item.author}
+          key={uuidv4()}
           url={item.url}
           logo={item.logoUrl}
           platform={item.platform}
