@@ -1,11 +1,13 @@
-import { BannerMovies, MoviesList } from "@/03_widgets/movies";
+import { BannerMovies, NavigationCompilation } from "@/03_widgets/movies";
+import { Outlet } from "react-router-dom";
 
 function MainPage() {
   return (
     <>
       <div className="container">
         <BannerMovies />
-        <MoviesList />
+        <NavigationCompilation />
+        <Outlet />
       </div>
     </>
   );
