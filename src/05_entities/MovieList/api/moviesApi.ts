@@ -8,8 +8,8 @@ export const moviesApi = createApi({
   reducerPath: "moviesApi",
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
-    getMovies: builder.query<ItemInterface, void>({
-      query: () => {
+    getMovies: builder.query<ItemInterface, string>({
+      query: (type) => {
         return {
           url: "collections",
           headers: {
@@ -19,7 +19,7 @@ export const moviesApi = createApi({
           params: {
             page: "1",
             limit: "8",
-            type: "TOP_250_MOVIES",
+            type: type,
           },
         };
       },

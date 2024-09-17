@@ -2,17 +2,30 @@ import styles from "./MoviesList.module.css";
 import { useGetMoviesQuery } from "@/05_entities/MovieList/api/moviesApi";
 import { useAppDispatch, useAppSelector } from "@/01_app/appStore";
 import { useEffect } from "react";
-import { setMovies } from "@/05_entities/MovieList/model/moviesSlice";
+import {
+  setMovies,
+  setPartMovies,
+} from "@/05_entities/MovieList/model/moviesSlice";
 import { MoviesCard } from "@/05_entities/MoviesCard";
+import { useParams } from "react-router-dom";
+import { ECollections } from "../../model/types";
 
-function MoviesList() {
-  const { data, error, isLoading } = useGetMoviesQuery();
+interface MovieListProps {
+  collectionType?: ECollections;
+}
+
+function MoviesList({ collectionType }: MovieListProps) {
+  const { type } = useParams();
+  const { data, error, isLoading } = useGetMoviesQuery(
+    type || collectionType || ""
+  );
   const dispath = useAppDispatch();
-  const movies = useAppSelector((state) => state.movies.movies);
+  const movies = useAppSelector((state) => state.movies.partMovies);
 
   useEffect(() => {
     if (data?.items) {
       dispath(setMovies(data?.items));
+      dispath(setPartMovies(data?.items));
     }
   }, [data, dispath]);
 
@@ -25,30 +38,18 @@ function MoviesList() {
   }
 
   return (
-    <section>
-      <div className={styles["navigate-menu"]}>
-        <nav className={styles.nav}>
-          <ul className={styles["nav-list"]}>
-            <li className={styles["nav-item"]}>Популярные фильмы</li>
-            <li className={styles["nav-item"]}>Популярные сериалы</li>
-            <li className={styles["nav-item"]}>Подборка фильмов</li>
-          </ul>
-        </nav>
-        <a href="#">{"Смотреть все >"}</a>
-      </div>
-      <div className={styles.list}>
-        {movies &&
-          movies.map((movie) => (
-            <MoviesCard
-              key={movie.kinopoiskId}
-              coverUrl={movie.coverUrl}
-              year={movie.year}
-              nameRu={movie.nameRu}
-              rate={movie.ratingKinopoisk}
-              id={movie.kinopoiskId}
-            />
-          ))}
-      </div>
+    <section className={styles.list}>
+      {movies &&
+        movies.map((movie) => (
+          <MoviesCard
+            key={movie.kinopoiskId}
+            coverUrl={movie.coverUrl}
+            year={movie.year}
+            nameRu={movie.nameRu}
+            rate={movie.ratingKinopoisk}
+            id={movie.kinopoiskId}
+          />
+        ))}
     </section>
   );
 }

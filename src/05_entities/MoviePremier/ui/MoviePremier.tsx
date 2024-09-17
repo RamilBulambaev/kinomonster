@@ -2,6 +2,7 @@ import Button from "@/06_shared/ui/button/Button";
 import styles from "./MoviePremier.module.css";
 import Image from "@/06_shared/ui/Image/Image";
 import { useGetMovieQuery } from "@/05_entities/Movie/api/movieApi";
+import { useNavigate } from "react-router-dom";
 
 interface MoviePremierProps {
   id: string;
@@ -11,7 +12,11 @@ interface MoviePremierProps {
 
 function MoviePremier({ id, title, url }: MoviePremierProps) {
   const { data } = useGetMovieQuery(id);
-  console.log(data);
+  const navigate = useNavigate();
+
+  const handleShowMovieDetails = () => {
+    navigate(`movie/${id}`);
+  };
 
   return (
     <div className={styles.container}>
@@ -21,7 +26,7 @@ function MoviePremier({ id, title, url }: MoviePremierProps) {
           <h2 className={styles.name}>{title}</h2>
           <p className={styles.description}>{data?.description}</p>
         </div>
-        <Button>Смотреть</Button>
+        <Button onClick={handleShowMovieDetails}>Смотреть</Button>
       </div>
       <div className={styles.right}>
         <Image url={url} type="banner" alt={title} />

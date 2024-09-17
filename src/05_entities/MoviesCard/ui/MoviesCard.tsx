@@ -12,7 +12,7 @@ interface MoviesCardProps {
 
 function MoviesCard({ coverUrl, year, nameRu, rate, id }: MoviesCardProps) {
   return (
-    <Link to={`/movie/${id}`}>
+    <Link to={`/movie/${id}`} className={styles.link}>
       <div className={styles.container}>
         <Image url={coverUrl} type="card" alt={nameRu} />
         <h5 className={styles.name}>{nameRu}</h5>

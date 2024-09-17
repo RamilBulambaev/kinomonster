@@ -4,10 +4,12 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface MoviesState {
   movies: Item[];
+  partMovies: Item[];
 }
 
 const initialState: MoviesState = {
   movies: [],
+  partMovies: [],
 };
 
 export const moviesSlice = createSlice({
@@ -17,9 +19,12 @@ export const moviesSlice = createSlice({
     setMovies: (state, action: PayloadAction<Item[]>) => {
       state.movies = action.payload;
     },
+    setPartMovies: (state, action: PayloadAction<Item[]>) => {
+      state.partMovies = action.payload.slice(0, 8);
+    },
   },
 });
 
-export const { setMovies } = moviesSlice.actions;
+export const { setMovies, setPartMovies } = moviesSlice.actions;
 
 export default moviesSlice.reducer;

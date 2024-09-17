@@ -1,13 +1,6 @@
-.list {
+.navigate-menu {
   max-width: 1140px;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 15px;
-  margin-bottom: 30px;
-}
-
-.navigate-menu {
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
@@ -21,4 +14,15 @@
 .nav-item {
   font-size: 18px;
   padding-right: 30px;
+  text-decoration: none;
+  color: #000;
+}
+
+.nav-item:hover {
+  color: #007bff;
+}
+
+.nav-item-active {
+  color: #007bff;
+  font-weight: bold;
 }
