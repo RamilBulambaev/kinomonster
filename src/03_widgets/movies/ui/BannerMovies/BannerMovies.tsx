@@ -1,28 +1,57 @@
-import Image from "@/06_shared/ui/Image/Image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Autoplay, Pagination } from "swiper/modules";
 import styles from "./BannerMovies.module.css";
-import Button from "@/06_shared/ui/button/Button";
+import { useGetPremierQuery } from "@/05_entities/MoviePremier/api/premierApi";
+import { useAppDispatch, useAppSelector } from "@/01_app/appStore";
+import { useEffect } from "react";
+import { setPremier } from "@/05_entities/MoviePremier/model/premierSlice";
+import { MoviePremier } from "@/05_entities/MoviePremier";
 
 function BannerMovies() {
+  const { data, error, isLoading } = useGetPremierQuery();
+  const dispatch = useAppDispatch();
+  const premier = useAppSelector((state) => state.premier.premier);
+
+  useEffect(() => {
+    if (data) {
+      dispatch(setPremier(data.items));
+    }
+  }, [data, dispatch]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Ошибка при отображении информации о фильме</div>;
+  }
+
   return (
     <div className={styles.container}>
-      <div className={styles.left}>
-        <p className={styles.poster}>УЖЕ В КИНО</p>
-        <div>
-          <h2 className={styles.name}>Чужой: Ромул (2024)</h2>
-          <p className={styles.description}>
-            Исследуя заброшенную космическую станцию, группа колонизаторов
-            сталкивается с самой ужасающей формой жизни во Вселенной.
-          </p>
-        </div>
-        <Button>Смотреть</Button>
-      </div>
-      <div className={styles.right}>
-        <Image
-          url="https://gamemagic.ru/wp-content/uploads/2024/07/8e6868683d582772628b2d7ad76452b0-1.webp"
-          type="banner"
-          alt="Чужой: Ромул (2024)"
-        />
-      </div>
+      <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Autoplay, Pagination]}
+      >
+        {premier?.map((item) => (
+          <SwiperSlide key={item.kinopoiskId}>
+            <MoviePremier
+              id={`${item.kinopoiskId}`}
+              url={item.posterUrl}
+              title={item.nameRu}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 }
