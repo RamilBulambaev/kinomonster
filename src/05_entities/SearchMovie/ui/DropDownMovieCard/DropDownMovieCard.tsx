@@ -1,6 +1,6 @@
 import styles from "./DropDownMovieCard.module.css";
 
-interface SearchMovieCardProps {
+interface DropDownMovieCard {
   url: string;
   name: string;
   id: number;
@@ -8,13 +8,13 @@ interface SearchMovieCardProps {
   onClick: (id: number) => void;
 }
 
-function SearchMovieCard({
+function DropDownMovieCard({
   url,
   name,
   id,
   rate,
   onClick,
-}: SearchMovieCardProps) {
+}: DropDownMovieCard) {
   return (
     <div className={styles.card} onClick={() => onClick(id)}>
       <div className={styles.right}>
@@ -28,4 +28,4 @@ function SearchMovieCard({
   );
 }
 
-export default SearchMovieCard;
+export default DropDownMovieCard;
