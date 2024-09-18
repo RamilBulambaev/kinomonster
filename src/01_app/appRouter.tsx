@@ -1,11 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import BaseLayout from "./layouts/BaseLayout";
-import About from "@/02_pages/about/ui/About";
 import { MainPage } from "@/02_pages/main";
-import { PopularPage } from "@/02_pages/popular";
 import { MovieInfoPage } from "@/02_pages/movieInfo";
 import { MoviesList } from "@/03_widgets/movies";
 import { ECollections } from "@/03_widgets/movies/model/types";
+import { SearchPage } from "@/02_pages/search";
 
 export const appRouter = createBrowserRouter([
   {
@@ -29,12 +28,8 @@ export const appRouter = createBrowserRouter([
         ],
       },
       {
-        path: "/about",
-        element: <About />,
-      },
-      {
-        path: "/popular",
-        element: <PopularPage />,
+        path: "/search/:keyword",
+        element: <SearchPage />,
       },
       {
         path: "/movie/:id",
