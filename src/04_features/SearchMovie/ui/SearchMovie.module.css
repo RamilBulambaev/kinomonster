@@ -25,9 +25,8 @@
   background: #ffffff;
   color: #000000;
   border: 1px solid #c4d1eb;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 1px 1px 1px 0px #e2e2e2;
-  /* transition: 0.3s ease; */
 }
 
 .input:focus {
@@ -44,4 +43,27 @@
   fill: #acacac;
   width: 17px;
   height: 17px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  max-height: 260px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  z-index: 10;
+  overflow-y: scroll;
+}
+
+.film {
+  list-style-type: none;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+
+.film:hover {
+  background-color: #acacac;
+  border-radius: 10px;
 }
