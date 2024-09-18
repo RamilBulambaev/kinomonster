@@ -1,0 +1,21 @@
+.card {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.left {
+  margin-right: 30px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+.right h2 {
+  margin-bottom: 15px;
+}
+
+.right p {
+  flex-grow: 1;
+}
