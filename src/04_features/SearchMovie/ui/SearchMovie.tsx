@@ -1,7 +1,36 @@
+import { useEffect, useState } from "react";
 import styles from "./SearchMovie.module.css";
 import cn from "classnames";
+import { useDebounce } from "@/06_shared/hooks/useDebounce";
+import { useGetSearchMovieQuery } from "@/05_entities/SearchMovie/api/searchMovieApi";
+import { DropDownMovieCard } from "@/05_entities/SearchMovie";
+import { useNavigate } from "react-router-dom";
 
 function SearchMovie() {
+  const [search, setSearch] = useState("");
+  const [isDropdown, setIsDropdown] = useState(false);
+  const debounced = useDebounce(search);
+  const navigate = useNavigate();
+  const { data, isLoading } = useGetSearchMovieQuery(debounced, {
+    skip: debounced.length < 3,
+  });
+
+  useEffect(() => {
+    setIsDropdown(debounced.length > 3 && !isLoading);
+  }, [debounced, data, isLoading]);
+
+  const handlerClick = (id: number) => {
+    navigate(`/movie/${id}`);
+    setIsDropdown(false);
+  };
+
+  const handleBlur = () => {
+    setTimeout(() => {
+      setIsDropdown(false);
+      setSearch("");
+    }, 500);
+  };
+
   return (
     <div className={styles.custom_input}>
       <svg
@@ -13,9 +42,28 @@ function SearchMovie() {
       </svg>
       <input
         className={styles.input}
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        onBlur={handleBlur}
         type="text"
-        placeholder="Чужой"
+        placeholder="Поиск по названию"
       />
+      {isDropdown && (
+        <ul className={styles.dropdown}>
+          {isLoading && <p>Loading...</p>}
+          {data?.films.map((film) => (
+            <li key={film.filmId} className={styles.film}>
+              <DropDownMovieCard
+                name={film.nameRu}
+                url={film.posterUrlPreview}
+                id={film.filmId}
+                rate={film.rating}
+                onClick={handlerClick}
+              />
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
