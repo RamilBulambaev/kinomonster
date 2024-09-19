@@ -1,0 +1,19 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.card-container {
+  text-align: center;
+  border-radius: 20px;
+  color: #ffffff;
+}
+
+.navigation {
+  max-width: 100%;
+  display: flex;
+  margin-top: 10px;
+  align-items: start;
+  gap: 15px;
+}
