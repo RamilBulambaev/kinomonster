@@ -3,10 +3,19 @@ import styles from "./MovieInfo.module.css";
 import Image from "@/06_shared/ui/Image/Image";
 import MovieWatchButtons from "@/05_entities/Movie/ui/MovieWatchButtons/MovieWatchButtons";
 import { AboutMovie } from "@/05_entities/Movie";
-import Button from "@/06_shared/ui/button/Button";
+import { useEffect, useState } from "react";
+import { FavoritesToggleButton } from "@/04_features/favoritesToggleButton";
 
 function MovieInfo() {
   const movie = useAppSelector((state) => state.movie.movie);
+  const favorite = useAppSelector((state) => state.favorites.favorites);
+  const [isFav, setIsFav] = useState(
+    favorite.some((item) => item.kinopoiskId === movie?.kinopoiskId)
+  );
+
+  useEffect(() => {
+    setIsFav(favorite.some((item) => item.kinopoiskId === movie?.kinopoiskId));
+  }, [favorite, movie]);
 
   if (!movie) {
     return <div>Movie not found</div>;
@@ -27,7 +36,7 @@ function MovieInfo() {
         <AboutMovie />
       </div>
       <div className={styles.right}>
-        <Button>В избранное </Button>
+        <FavoritesToggleButton isFav={isFav} movie={movie} />
         <div className={styles.rate}>
           <div className={styles["rate-item"]}>
             <span className={styles["rate-source"]}>Кинопоиск:</span>

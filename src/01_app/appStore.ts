@@ -1,3 +1,4 @@
+import favoritesReducer from "@/05_entities/favorite/model/favoriteSlice";
 import { movieApi } from "@/05_entities/Movie/api/movieApi";
 import { staffApi } from "@/05_entities/Movie/api/staffApi";
 import movieReducer from "@/05_entities/Movie/model/movieSlice";
@@ -15,6 +16,7 @@ export const store = configureStore({
     movie: movieReducer,
     movies: moviesReducer,
     premier: premierReducer,
+    favorites: favoritesReducer,
     [moviesApi.reducerPath]: moviesApi.reducer,
     [movieApi.reducerPath]: movieApi.reducer,
     [staffApi.reducerPath]: staffApi.reducer,

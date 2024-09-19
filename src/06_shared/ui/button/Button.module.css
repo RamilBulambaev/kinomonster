@@ -1,11 +1,22 @@
 .button {
   font-size: 18px;
-  padding: 8px 48px;
+  padding: 8px 16px;
   margin-bottom: 20px;
   border-radius: 20px;
+  border: 1px solid #ff3d81;
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
+  min-width: 200px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.standart {
   background-color: #ff3d81;
   color: white;
-  border: none;
-  text-wrap: nowrap;
-  cursor: pointer;
+}
+
+.revers {
+  background-color: #ffffff;
+  color: #ff3d81;
 }
