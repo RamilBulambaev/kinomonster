@@ -11,3 +11,8 @@
   text-decoration: none;
   color: #fff;
 }
+
+.link-active {
+  color: #ff3d81;
+  border-bottom: 1px solid #ff3d81;
+}
