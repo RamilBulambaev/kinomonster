@@ -5,7 +5,7 @@ import withSkeleton from "@/06_shared/hocs/withSkeleton";
 
 interface MoviesCardProps {
   coverUrl: string;
-  year: string;
+  year: number;
   nameRu: string;
   rate: number;
   id: number;

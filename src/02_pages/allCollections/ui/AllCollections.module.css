@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+select {
+  align-self: center;
+  width: 50%;
+  border: none;
+  border-radius: 10px;
+  background-color: #0f0a33;
+  padding: 10px;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.option {
+  background-color: #0f0a33;
+  padding: 5px;
+}

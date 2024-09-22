@@ -1,7 +1,7 @@
 import Logo from "@/05_entities/logo/ui/Logo";
 import styles from "./Header.module.css";
-import Navigation from "./navigation/Navigation";
 import { SearchMovie } from "@/04_features/SearchMovie";
+import { Navigation } from "@/04_features/navigation";
 
 function Header() {
   return (

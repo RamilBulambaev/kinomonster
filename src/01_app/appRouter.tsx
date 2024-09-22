@@ -6,6 +6,7 @@ import { MoviesList } from "@/03_widgets/movies";
 import { ECollections } from "@/03_widgets/movies/model/types";
 import { SearchPage } from "@/02_pages/search";
 import { FavoritePage } from "@/02_pages/favorite";
+import { AllCollections } from "@/02_pages/allCollections";
 
 export const appRouter = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ export const appRouter = createBrowserRouter([
       {
         path: "/movie/:id",
         element: <MovieInfoPage />,
+      },
+      {
+        path: "/allCollections",
+        element: <AllCollections />,
       },
     ],
   },

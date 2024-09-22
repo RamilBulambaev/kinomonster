@@ -22,9 +22,11 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  text-wrap: nowrap;
 }
 
 .rate-source {
   font-size: 18px;
   color: #ffd700;
+  margin-right: 2px;
 }

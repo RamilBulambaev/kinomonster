@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styles from "./NavigationCompilation.module.css";
 import cn from "classnames";
 import { ECollections } from "../../model/types";
@@ -34,7 +34,9 @@ function NavigationCompilation() {
           </li>
         </ul>
       </nav>
-      <a href="#">{"Смотреть все >"}</a>
+      <Link to="/allCollections" className={styles.link}>
+        {"Смотреть все >"}
+      </Link>
     </div>
   );
 }

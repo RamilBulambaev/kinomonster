@@ -6,18 +6,22 @@ export interface ItemInterface {
 
 export interface Item {
   kinopoiskId: number;
+  imdbId?: string;
   nameRu: string;
-  nameEn: string;
+  nameEn?: string | null;
   nameOriginal: string;
   countries: Country[];
   genres: Genre[];
   ratingKinopoisk: number;
-  ratingImbd: number;
-  year: string;
+  ratingImdb: number;
+  year: number;
   type: string;
   posterUrl: string;
   posterUrlPreview: string;
   coverUrl: string;
+  logoUrl?: string;
+  description: string;
+  ratingAgeLimits: string;
 }
 
 export interface Genre {
@@ -35,12 +39,4 @@ export enum ECollections {
   TOP_250_MOVIES = "TOP_250_MOVIES",
   VAMPIRE_THEME = "VAMPIRE_THEME",
   COMICS_THEME = "COMICS_THEME",
-  CLOSES_RELEASES = "CLOSES_RELEASES",
-  FAMILY = "FAMILY",
-  OSKAR_WINNERS_2021 = "OSKAR_WINNERS_2021",
-  LOVE_THEME = "LOVE_THEME",
-  ZOMBIE_THEME = "ZOMBIE_THEME",
-  CATASTROPHE_THEME = "CATASTROPHE_THEME",
-  KIDS_ANIMATION_THEME = "KIDS_ANIMATION_THEME",
-  POPULAR_SERIES = "POPULAR_SERIES",
 }
