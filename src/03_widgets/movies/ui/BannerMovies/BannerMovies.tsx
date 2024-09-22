@@ -20,10 +20,6 @@ function BannerMovies() {
     }
   }, [data, dispatch]);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   if (error) {
     return <div>Ошибка при отображении информации о фильме</div>;
   }
@@ -45,6 +41,7 @@ function BannerMovies() {
         {premier?.map((item) => (
           <SwiperSlide key={item.kinopoiskId}>
             <MoviePremier
+              isLoading={isLoading}
               id={`${item.kinopoiskId}`}
               url={item.posterUrl}
               title={item.nameRu}

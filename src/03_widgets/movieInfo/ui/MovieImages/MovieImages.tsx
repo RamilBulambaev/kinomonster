@@ -9,10 +9,11 @@ import { useGetMovieImagesQuery } from "@/05_entities/Movie/api/movieApi";
 import Image from "@/06_shared/ui/Image/Image";
 import styles from "./MovieImages.module.css";
 import Modal from "@/06_shared/modal/Modal";
+import withSkeleton from "@/06_shared/hocs/withSkeleton";
 
 function MovieImages() {
   const { id } = useParams();
-  const { data, error, isLoading } = useGetMovieImagesQuery(id || "");
+  const { data, error } = useGetMovieImagesQuery(id || "");
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -39,10 +40,6 @@ function MovieImages() {
     }
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isModalOpen]);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
   if (error) {
     return <div>Ошибка при отображении информации о фильме</div>;
@@ -101,4 +98,6 @@ function MovieImages() {
   );
 }
 
-export default MovieImages;
+const MovieImagesWithSkeleton = withSkeleton(MovieImages, 8, "item", "row");
+
+export default MovieImagesWithSkeleton;

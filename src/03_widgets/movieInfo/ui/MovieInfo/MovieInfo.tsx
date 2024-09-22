@@ -5,6 +5,7 @@ import MovieWatchButtons from "@/05_entities/Movie/ui/MovieWatchButtons/MovieWat
 import { AboutMovie } from "@/05_entities/Movie";
 import { useEffect, useState } from "react";
 import { FavoritesToggleButton } from "@/04_features/favoritesToggleButton";
+import withSkeleton from "@/06_shared/hocs/withSkeleton";
 
 function MovieInfo() {
   const movie = useAppSelector((state) => state.movie.movie);
@@ -56,4 +57,6 @@ function MovieInfo() {
   );
 }
 
-export default MovieInfo;
+const MovieInfoWithSkeleton = withSkeleton(MovieInfo, 1, "banner", "column");
+
+export default MovieInfoWithSkeleton;

@@ -19,10 +19,6 @@ function MovieInfoPage() {
     }
   }, [data, dispatch]);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   if (error) {
     return <div>Ошибка при отображении информации о фильме</div>;
   }
@@ -30,11 +26,11 @@ function MovieInfoPage() {
   return (
     <div className={styles.container}>
       <div className={styles.info}>
-        <MovieInfo />
+        <MovieInfo isLoading={isLoading} />
       </div>
-      <MovieImages />
+      <MovieImages isLoading={isLoading} />
       <h1>Похожие фильмы</h1>
-      <RelatedMovies />
+      <RelatedMovies  />
     </div>
   );
 }

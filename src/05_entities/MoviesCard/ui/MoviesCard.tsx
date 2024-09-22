@@ -1,6 +1,7 @@
 import Image from "@/06_shared/ui/Image/Image";
 import styles from "./MoviesCard.module.css";
 import { Link } from "react-router-dom";
+import withSkeleton from "@/06_shared/hocs/withSkeleton";
 
 interface MoviesCardProps {
   coverUrl: string;
@@ -25,4 +26,6 @@ function MoviesCard({ coverUrl, year, nameRu, rate, id }: MoviesCardProps) {
   );
 }
 
-export default MoviesCard;
+const MoviesCardWithSkeleton = withSkeleton(MoviesCard, 8, "item", "row");
+
+export default MoviesCardWithSkeleton;
