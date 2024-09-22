@@ -16,9 +16,11 @@ interface MovieListProps {
 
 function MoviesList({ collectionType }: MovieListProps) {
   const { type } = useParams();
-  const { data, error, isLoading } = useGetMoviesQuery(
-    type || collectionType || ""
-  );
+  const selectedType = type || collectionType || ECollections.TOP_250_MOVIES;
+  const { data, error, isLoading } = useGetMoviesQuery({
+    type: selectedType,
+    page: 1,
+  });
   const dispath = useAppDispatch();
   const movies = useAppSelector((state) => state.movies.partMovies);
 
