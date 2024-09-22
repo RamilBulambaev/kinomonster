@@ -7,10 +7,6 @@ function SearchList() {
   const { keyword } = useParams();
   const { data, isLoading, error } = useGetSearchMovieQuery(keyword || "");
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   if (error) {
     return <div>Ошибка при отображении информации о фильме</div>;
   }
@@ -20,6 +16,7 @@ function SearchList() {
       {data?.films.map((film) => (
         <li key={film.filmId}>
           <SearchMovieCard
+            isLoading={isLoading}
             name={film.nameRu}
             url={film.posterUrl}
             description={film.description}

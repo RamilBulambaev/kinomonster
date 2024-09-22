@@ -3,6 +3,7 @@ import styles from "./MoviePremier.module.css";
 import Image from "@/06_shared/ui/Image/Image";
 import { useGetMovieQuery } from "@/05_entities/Movie/api/movieApi";
 import { useNavigate } from "react-router-dom";
+import withSkeleton from "@/06_shared/hocs/withSkeleton";
 
 interface MoviePremierProps {
   id: string;
@@ -35,4 +36,6 @@ function MoviePremier({ id, title, url }: MoviePremierProps) {
   );
 }
 
-export default MoviePremier;
+const MoviePremierWithSkeleton = withSkeleton(MoviePremier, 1, "banner");
+
+export default MoviePremierWithSkeleton;
