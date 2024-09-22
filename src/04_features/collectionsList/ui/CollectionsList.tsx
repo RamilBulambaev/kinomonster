@@ -1,25 +1,25 @@
-import styles from "./SearchList.module.css";
+import { Item } from "@/03_widgets/movies/model/types";
+import styles from "./CollectionsList.module.css";
 import { SearchMovieCard } from "@/05_entities/SearchMovie";
-import { ISearchFilm } from "@/05_entities/SearchMovie/model/type";
 
-interface SearchListProps {
-  films: ISearchFilm[] | [];
+interface CollectionsListProps {
+  films: Item[] | [];
   isLoading: boolean;
 }
 
-function SearchList({ films, isLoading }: SearchListProps) {
+function CollectionsList({ films, isLoading }: CollectionsListProps) {
   return (
     <>
       {films.length === 0 && <h2>Список пуст</h2>}
       <ul className={styles.list}>
         {films.map((film) => (
-          <li key={film.filmId}>
+          <li key={film.kinopoiskId}>
             <SearchMovieCard
               isLoading={isLoading}
               name={film.nameRu}
               url={film.posterUrl}
               description={film.description}
-              id={film.filmId}
+              id={film.kinopoiskId}
             />
           </li>
         ))}
@@ -28,4 +28,4 @@ function SearchList({ films, isLoading }: SearchListProps) {
   );
 }
 
-export default SearchList;
+export default CollectionsList;

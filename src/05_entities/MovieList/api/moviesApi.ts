@@ -1,4 +1,4 @@
-import { ItemInterface } from "@/03_widgets/movies/model/types";
+import { ECollections, ItemInterface } from "@/03_widgets/movies/model/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const BASE_URL = import.meta.env.VITE_MOVIES_BASE_API_URL;
@@ -8,8 +8,8 @@ export const moviesApi = createApi({
   reducerPath: "moviesApi",
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
-    getMovies: builder.query<ItemInterface, string>({
-      query: (type) => {
+    getMovies: builder.query<ItemInterface, { type: string; page: number }>({
+      query: ({ type = ECollections.TOP_250_MOVIES, page = 1 }) => {
         return {
           url: "collections",
           headers: {
@@ -17,8 +17,7 @@ export const moviesApi = createApi({
             "X-API-KEY": API_KEY,
           },
           params: {
-            page: "1",
-            limit: "8",
+            page: page,
             type: type,
           },
         };

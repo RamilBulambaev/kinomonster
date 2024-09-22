@@ -18,11 +18,17 @@
   color: #000;
 }
 
-.nav-item:hover {
+.nav-item:hover,
+.link:hover {
   color: #007bff;
 }
 
 .nav-item-active {
   color: #007bff;
   font-weight: bold;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
 }
