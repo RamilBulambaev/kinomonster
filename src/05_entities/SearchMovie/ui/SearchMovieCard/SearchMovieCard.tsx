@@ -2,6 +2,7 @@ import Image from "@/06_shared/ui/Image/Image";
 import styles from "./SearchMovieCard.module.css";
 import Button from "@/06_shared/ui/button/Button";
 import { useNavigate } from "react-router-dom";
+import withSkeleton from "@/06_shared/hocs/withSkeleton";
 
 interface SearchMovieCardProps {
   id: number;
@@ -32,4 +33,11 @@ function SearchMovieCard({ id, name, url, description }: SearchMovieCardProps) {
   );
 }
 
-export default SearchMovieCard;
+const SearchMovieCardWithSkeleton = withSkeleton(
+  SearchMovieCard,
+  10,
+  "item",
+  "column"
+);
+
+export default SearchMovieCardWithSkeleton;

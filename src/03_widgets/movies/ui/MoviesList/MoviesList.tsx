@@ -29,10 +29,6 @@ function MoviesList({ collectionType }: MovieListProps) {
     }
   }, [data, dispath]);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   if (error) {
     return <div>Error loading movies</div>;
   }
@@ -42,6 +38,7 @@ function MoviesList({ collectionType }: MovieListProps) {
       {movies &&
         movies.map((movie) => (
           <MoviesCard
+            isLoading={isLoading}
             key={movie.kinopoiskId}
             coverUrl={movie.coverUrl}
             year={movie.year}
