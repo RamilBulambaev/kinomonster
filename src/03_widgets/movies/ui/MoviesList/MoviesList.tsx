@@ -9,6 +9,8 @@ import {
 import { MoviesCard } from "@/05_entities/MoviesCard";
 import { useParams } from "react-router-dom";
 import { ECollections } from "../../model/types";
+import ErrorMessage from "@/06_shared/ErrorMessage/ErrorMessage";
+import NavigationCompilation from "../NavigationCompilation/NavigationCompilation";
 
 interface MovieListProps {
   collectionType?: ECollections;
@@ -31,24 +33,31 @@ function MoviesList({ collectionType }: MovieListProps) {
     }
   }, [data, dispath]);
 
+  if (isLoading) {
+    return null;
+  }
+
   if (error) {
-    return <div>Error loading movies</div>;
+    return <ErrorMessage>Ошибка загрузки фильмов</ErrorMessage>;
   }
 
   return (
-    <section className={styles.list}>
-      {movies &&
-        movies.map((movie) => (
-          <MoviesCard
-            isLoading={isLoading}
-            key={movie.kinopoiskId}
-            coverUrl={movie.coverUrl}
-            year={movie.year}
-            nameRu={movie.nameRu}
-            rate={movie.ratingKinopoisk}
-            id={movie.kinopoiskId}
-          />
-        ))}
+    <section>
+      <NavigationCompilation />
+      <div className={styles.list}>
+        {movies &&
+          movies.map((movie) => (
+            <MoviesCard
+              isLoading={isLoading}
+              key={movie.kinopoiskId}
+              coverUrl={movie.coverUrl}
+              year={movie.year}
+              nameRu={movie.nameRu}
+              rate={movie.ratingKinopoisk}
+              id={movie.kinopoiskId}
+            />
+          ))}
+      </div>
     </section>
   );
 }

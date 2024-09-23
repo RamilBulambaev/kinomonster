@@ -1,10 +1,10 @@
-export interface ItemInterface {
+export interface IItems {
   total: number;
   totalPages: number;
-  items: Item[];
+  items: IItem[];
 }
 
-export interface Item {
+export interface IItem {
   kinopoiskId: number;
   imdbId?: string;
   nameRu: string;

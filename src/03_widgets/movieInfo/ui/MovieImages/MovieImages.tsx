@@ -8,8 +8,9 @@ import { Navigation, Pagination, Mousewheel } from "swiper/modules";
 import { useGetMovieImagesQuery } from "@/05_entities/Movie/api/movieApi";
 import Image from "@/06_shared/ui/Image/Image";
 import styles from "./MovieImages.module.css";
-import Modal from "@/06_shared/modal/Modal";
 import withSkeleton from "@/06_shared/hocs/withSkeleton";
+import ErrorMessage from "@/06_shared/ErrorMessage/ErrorMessage";
+import Modal from "@/06_shared/Modal_temp/Modal";
 
 function MovieImages() {
   const { id } = useParams();
@@ -42,13 +43,14 @@ function MovieImages() {
   }, [isModalOpen]);
 
   if (error) {
-    return <div>Ошибка при отображении информации о фильме</div>;
+    return (
+      <ErrorMessage>Ошибка при отображении информации о фильме</ErrorMessage>
+    );
   }
 
   return (
     <>
       <h2 className={styles.title}>Кадры из фильма:</h2>
-
       <Swiper
         modules={[Navigation, Pagination, Mousewheel]}
         spaceBetween={1}

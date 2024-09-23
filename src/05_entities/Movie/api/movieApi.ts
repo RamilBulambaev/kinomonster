@@ -4,10 +4,8 @@ import {
   IMovie,
   RelatedMoviesInterface,
 } from "@/05_entities/Movie/model/type";
+import { API_KEY, BASE_URL } from "@/06_shared/constants/constants";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
-const BASE_URL = import.meta.env.VITE_MOVIES_BASE_API_URL;
-const API_KEY = import.meta.env.VITE_MOVIES_API_KEY;
 
 export const movieApi = createApi({
   reducerPath: "movieApi",

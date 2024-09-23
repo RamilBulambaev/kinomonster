@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { StaffInterface } from "../model/type";
-
-const API_KEY = import.meta.env.VITE_MOVIES_API_KEY;
+import { API_KEY } from "@/06_shared/constants/constants";
 
 export const staffApi = createApi({
   reducerPath: "staffApi",

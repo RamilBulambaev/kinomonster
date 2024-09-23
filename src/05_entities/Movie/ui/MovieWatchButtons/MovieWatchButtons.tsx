@@ -6,10 +6,11 @@ import { setExternalSource } from "../../model/movieSlice";
 import IconLink from "@/06_shared/ui/IconLink/IconLink";
 import styles from "./MovieWatchButtons.module.css";
 import { v4 as uuidv4 } from "uuid";
+import ErrorMessage from "@/06_shared/ErrorMessage/ErrorMessage";
 
 function MovieWatchButtons() {
   const { id } = useParams();
-  const { data, error, isLoading } = useGetmovieExternalSourceQuery(id || "");
+  const { data, error } = useGetmovieExternalSourceQuery(id || "");
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -18,12 +19,8 @@ function MovieWatchButtons() {
     }
   }, [data, dispatch]);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   if (error) {
-    return <div>Ошибка</div>;
+    return <ErrorMessage>Ошибка</ErrorMessage>;
   }
 
   return (

@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { ISearch } from "../model/type";
-
-const BASE_URL = "https://kinopoiskapiunofficial.tech/api/v2.1/films/";
-const API_KEY = import.meta.env.VITE_MOVIES_API_KEY;
+import { API_KEY } from "@/06_shared/constants/constants";
 
 export const searchMovieApi = createApi({
   reducerPath: "searchMovieApi",
-  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://kinopoiskapiunofficial.tech/api/v2.1/films/",
+  }),
   endpoints: (builder) => ({
     getSearchMovie: builder.query<ISearch, string>({
       query: (keyword) => {
