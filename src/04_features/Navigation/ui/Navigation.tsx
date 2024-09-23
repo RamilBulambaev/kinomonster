@@ -29,6 +29,18 @@ function Navigation() {
           Избранное
         </NavLink>
       </li>
+      <li className={styles.item}>
+        <NavLink
+          className={({ isActive }) =>
+            cn(styles["link"], {
+              [styles["link-active"]]: isActive,
+            })
+          }
+          to="/allCollections"
+        >
+          Подборки фильмов
+        </NavLink>
+      </li>
     </ul>
   );
 }
