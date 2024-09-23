@@ -1,4 +1,4 @@
-import Button from "@/06_shared/ui/Button_temp/Button";
+import Button from "@/06_shared/ui/Button/Button";
 import { useNavigate } from "react-router-dom";
 
 interface GoMovieInfoButtonProps {

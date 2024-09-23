@@ -2,7 +2,7 @@ import Image from "@/06_shared/ui/Image/Image";
 import styles from "./SearchMovieCard.module.css";
 import { useNavigate } from "react-router-dom";
 import withSkeleton from "@/06_shared/hocs/withSkeleton";
-import Button from "@/06_shared/ui/Button_temp/Button";
+import Button from "@/06_shared/ui/Button/Button";
 
 interface SearchMovieCardProps {
   id: number;
