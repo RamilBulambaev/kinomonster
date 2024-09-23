@@ -10,7 +10,7 @@ import Image from "@/06_shared/ui/Image/Image";
 import styles from "./MovieImages.module.css";
 import withSkeleton from "@/06_shared/hocs/withSkeleton";
 import ErrorMessage from "@/06_shared/ErrorMessage/ErrorMessage";
-import Modal from "@/06_shared/Modal_temp/Modal";
+import Modal from "@/06_shared/Modal/Modal";
 
 function MovieImages() {
   const { id } = useParams();
