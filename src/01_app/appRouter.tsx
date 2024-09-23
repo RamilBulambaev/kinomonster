@@ -6,7 +6,7 @@ import { MoviesList } from "@/03_widgets/movies";
 import { ECollections } from "@/03_widgets/movies/model/types";
 import { SearchPage } from "@/02_pages/SearchPage";
 import { FavoritePage } from "@/02_pages/FavoritePage";
-import { AllCollections } from "@/02_pages/AllCollections_temp";
+import { AllCollections } from "@/02_pages/AllCollections";
 
 export const appRouter = createBrowserRouter([
   {

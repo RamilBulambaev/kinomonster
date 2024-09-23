@@ -1,7 +1,7 @@
-import { Navigation } from "@/04_features/Navigation_temp";
+import { Navigation } from "@/04_features/Navigation";
 import styles from "./Header.module.css";
 import { SearchMovie } from "@/04_features/SearchMovie";
-import { Logo } from "@/05_entities/Logo_temp";
+import { Logo } from "@/05_entities/Logo";
 
 function Header() {
   return (
