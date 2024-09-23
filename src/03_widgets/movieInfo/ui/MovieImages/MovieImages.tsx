@@ -8,9 +8,9 @@ import { Navigation, Pagination, Mousewheel } from "swiper/modules";
 import { useGetMovieImagesQuery } from "@/05_entities/Movie/api/movieApi";
 import Image from "@/06_shared/ui/Image/Image";
 import styles from "./MovieImages.module.css";
-import Modal from "@/06_shared/Modal/Modal";
 import withSkeleton from "@/06_shared/hocs/withSkeleton";
 import ErrorMessage from "@/06_shared/ErrorMessage/ErrorMessage";
+import Modal from "@/06_shared/Modal/Modal";
 
 function MovieImages() {
   const { id } = useParams();

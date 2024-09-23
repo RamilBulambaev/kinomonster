@@ -3,9 +3,9 @@ import styles from "./MovieInfo.module.css";
 import Image from "@/06_shared/ui/Image/Image";
 import { AboutMovie, MovieRate, MovieWatchButtons } from "@/05_entities/Movie";
 import { useEffect, useState } from "react";
-import { FavoritesToggleButton } from "@/04_features/FavoritesToggleButton";
 import withSkeleton from "@/06_shared/hocs/withSkeleton";
 import ErrorMessage from "@/06_shared/ErrorMessage/ErrorMessage";
+import { FavoritesToggleButton } from "@/04_features/FavoritesToggleButton";
 
 function MovieInfo() {
   const movie = useAppSelector((state) => state.movie.movie);

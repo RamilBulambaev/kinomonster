@@ -1,8 +1,8 @@
-import { SearchList } from "@/04_features/SearchList";
 import styles from "./SearchPage.module.css";
 import { useParams } from "react-router-dom";
 import { useGetSearchMovieQuery } from "@/05_entities/SearchMovie/api/searchMovieApi";
 import ErrorMessage from "@/06_shared/ErrorMessage/ErrorMessage";
+import { SearchList } from "@/04_features/SearchList";
 
 function SearchPage() {
   const { keyword } = useParams();

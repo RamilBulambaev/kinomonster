@@ -1,8 +1,8 @@
 import { useAppSelector } from "@/01_app/appStore";
 import styles from "./FavoritesList.module.css";
-import { FavoritesToggleButton } from "@/04_features/FavoritesToggleButton";
 import Image from "@/06_shared/ui/Image/Image";
 import { GoMovieInfoButton } from "@/04_features/GoMovieInfoButton";
+import { FavoritesToggleButton } from "@/04_features/FavoritesToggleButton";
 
 function FavoritesList() {
   const data = useAppSelector((state) => state.favorites.favorites);
