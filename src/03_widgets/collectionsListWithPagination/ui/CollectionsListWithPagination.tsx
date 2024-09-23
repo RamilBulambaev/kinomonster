@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ECollections } from "@/03_widgets/movies/model/types";
 import { useGetMoviesQuery } from "@/05_entities/MovieList/api/moviesApi";
 import { CollectionsList } from "@/04_features/CollectionsList";
@@ -14,6 +14,10 @@ function CollectionsListWithPagination({ collections }: Props) {
     type: collections,
     page: currentPage,
   });
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [collections]);
 
   const nextPage = () => {
     if (data && currentPage < data?.totalPages) {
