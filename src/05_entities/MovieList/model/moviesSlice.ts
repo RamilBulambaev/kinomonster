@@ -1,10 +1,10 @@
-import { Item } from "@/03_widgets/movies/model/types";
+import { IItem } from "@/03_widgets/movies/model/types";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface MoviesState {
-  movies: Item[];
-  partMovies: Item[];
+  movies: IItem[];
+  partMovies: IItem[];
 }
 
 const initialState: MoviesState = {
@@ -16,10 +16,10 @@ export const moviesSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    setMovies: (state, action: PayloadAction<Item[]>) => {
+    setMovies: (state, action: PayloadAction<IItem[]>) => {
       state.movies = action.payload;
     },
-    setPartMovies: (state, action: PayloadAction<Item[]>) => {
+    setPartMovies: (state, action: PayloadAction<IItem[]>) => {
       state.partMovies = action.payload.slice(0, 8);
     },
   },

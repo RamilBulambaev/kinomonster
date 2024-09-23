@@ -1,6 +1,6 @@
-import { Footer } from "@/03_widgets/footer";
-import { Header } from "@/03_widgets/header";
 import { Outlet } from "react-router-dom";
+import { Header } from "@/03_widgets/Header_temp";
+import { Footer } from "@/03_widgets/Footer_temp";
 
 function BaseLayout() {
   return (

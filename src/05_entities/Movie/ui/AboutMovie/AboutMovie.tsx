@@ -5,10 +5,12 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { StaffInterface } from "../../model/type";
 import { v4 as uuidv4 } from "uuid";
+import { listSeparator } from "@/06_shared/helpers/listSeparator/listSeparator";
+import ErrorMessage from "@/06_shared/ErrorMessage/ErrorMessage";
 
 function AboutMovie() {
   const { id } = useParams();
-  const { data, error, isLoading } = useGetStaffMovieQuery(id || "");
+  const { data, error } = useGetStaffMovieQuery(id || "");
   const [director, setDirector] = useState<StaffInterface[]>([]);
   const [actors, setActors] = useState<StaffInterface[]>([]);
   const [producers, setProducers] = useState<StaffInterface[]>([]);
@@ -39,25 +41,10 @@ function AboutMovie() {
     }
   }, [data]);
 
-  const listSeparator = (
-    index: number,
-    length: number,
-    key: string,
-    value: string
-  ) => {
-    return index !== length ? (
-      <span key={key}>{`${value}, `}</span>
-    ) : (
-      <span key={key}>{value}</span>
-    );
-  };
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   if (error) {
-    return <div>Ошибка при отображении информации о фильме</div>;
+    return (
+      <ErrorMessage>Ошибка при отображении информации о фильме</ErrorMessage>
+    );
   }
 
   if (!movie) {

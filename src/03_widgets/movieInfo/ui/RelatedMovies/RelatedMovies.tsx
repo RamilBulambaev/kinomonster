@@ -7,17 +7,14 @@ import { useGetRelatedMoviesQuery } from "@/05_entities/Movie/api/movieApi";
 import { Link, useParams } from "react-router-dom";
 import styles from "./RelatedMovies.module.css";
 import Image from "@/06_shared/ui/Image/Image";
+import ErrorMessage from "@/06_shared/ErrorMessage/ErrorMessage";
 
 function RelatedMovies() {
   const { id } = useParams();
-  const { data, error, isLoading } = useGetRelatedMoviesQuery(id || "");
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  const { data, error } = useGetRelatedMoviesQuery(id || "");
 
   if (error) {
-    return <div>Ошибка при отображении информации о фильме</div>;
+    return <ErrorMessage>Ошибка при отображании похожих фильмов</ErrorMessage>;
   }
 
   return (
