@@ -4,8 +4,8 @@ import { useGetMovieQuery } from "@/05_entities/Movie/api/movieApi";
 import { useAppDispatch } from "@/01_app/appStore";
 import { setMovie } from "@/05_entities/Movie/model/movieSlice";
 import { useParams } from "react-router-dom";
-import { MovieImages, MovieInfo } from "@/03_widgets/movieInfo";
-import RelatedMovies from "@/03_widgets/movieInfo/ui/RelatedMovies/RelatedMovies";
+import { MovieImages, MovieInfo, RelatedMovies } from "@/03_widgets/movieInfo";
+import ErrorMessage from "@/06_shared/ErrorMessage/ErrorMessage";
 
 function MovieInfoPage() {
   const { id } = useParams();
@@ -20,7 +20,9 @@ function MovieInfoPage() {
   }, [data, dispatch]);
 
   if (error) {
-    return <div>Ошибка при отображении информации о фильме</div>;
+    return (
+      <ErrorMessage>Ошибка при отображении информации о фильме</ErrorMessage>
+    );
   }
 
   return (
@@ -30,7 +32,7 @@ function MovieInfoPage() {
       </div>
       <MovieImages isLoading={isLoading} />
       <h1>Похожие фильмы</h1>
-      <RelatedMovies  />
+      <RelatedMovies />
     </div>
   );
 }

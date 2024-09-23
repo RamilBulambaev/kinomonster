@@ -1,9 +1,9 @@
-export interface PremiersInterface {
+export interface IPremiers {
   total: number;
-  items: PremierMovieIterface[];
+  items: IPremierMovie[];
 }
 
-export interface PremierMovieIterface {
+export interface IPremierMovie {
   kinopoiskId: number;
   nameRu: string;
   nameEn: string;

@@ -1,4 +1,4 @@
-import { Navigation } from "@/04_features/navigation";
+import { Navigation } from "@/04_features/Navigation";
 import styles from "./Footer.module.css";
 
 function Footer() {

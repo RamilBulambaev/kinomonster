@@ -27,14 +27,14 @@ function FavoritesToggleButton({ isFav, movie }: FavoritesToggleButtonProps) {
       {!isFav && (
         <AiOutlineHeart
           onClick={() => handleAddFavorites(movie)}
-          size={48} // Размер иконки
-          color="gray" // Цвет иконки
+          size={48} 
+          color="gray"
           style={{
             cursor: "pointer",
-            marginRight: "10px", // Дополнительный отступ
-            transition: "transform 0.2s", // Анимация при наведении
+            marginRight: "10px",
+            transition: "transform 0.2s",
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")} // Эффект при наведении
+          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")}
           onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
         />
       )}

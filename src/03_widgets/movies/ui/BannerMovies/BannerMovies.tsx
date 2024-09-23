@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "@/01_app/appStore";
 import { useEffect } from "react";
 import { setPremier } from "@/05_entities/MoviePremier/model/premierSlice";
 import { MoviePremier } from "@/05_entities/MoviePremier";
+import ErrorMessage from "@/06_shared/ErrorMessage/ErrorMessage";
 
 function BannerMovies() {
   const { data, error, isLoading } = useGetPremierQuery();
@@ -21,7 +22,9 @@ function BannerMovies() {
   }, [data, dispatch]);
 
   if (error) {
-    return <div>Ошибка при отображении информации о фильме</div>;
+    return (
+      <ErrorMessage>Ошибка при отображении информации о фильме</ErrorMessage>
+    );
   }
 
   return (

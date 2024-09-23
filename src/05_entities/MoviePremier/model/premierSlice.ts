@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { PremierMovieIterface } from "./type";
+import { IPremierMovie } from "./type";
 
 export interface PremireState {
-  premier: PremierMovieIterface[] | null;
+  premier: IPremierMovie[] | null;
 }
 
 const initialState: PremireState = {
@@ -13,7 +13,7 @@ export const premierSlice = createSlice({
   name: "premier",
   initialState,
   reducers: {
-    setPremier: (state, action: PayloadAction<PremierMovieIterface[]>) => {
+    setPremier: (state, action: PayloadAction<IPremierMovie[]>) => {
       const currentYear = new Date().getFullYear();
       const currentMonth = new Date().getMonth();
       state.premier = action.payload

@@ -1,8 +1,8 @@
-import { ECollections } from "@/03_widgets/movies/model/types";
-import { CollectionsList } from "@/04_features/collectionsList";
-import { Pagination } from "@/04_features/pagination";
-import { useGetMoviesQuery } from "@/05_entities/MovieList/api/moviesApi";
 import { useState } from "react";
+import { ECollections } from "@/03_widgets/movies/model/types";
+import { CollectionsList } from "@/04_features/CollectionsList";
+import { Pagination } from "@/04_features/Pagination";
+import { useGetMoviesQuery } from "@/05_entities/MovieList/api/moviesApi";
 
 interface Props {
   collections: ECollections;

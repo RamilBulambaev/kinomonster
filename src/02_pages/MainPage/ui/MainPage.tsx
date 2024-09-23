@@ -1,4 +1,4 @@
-import { BannerMovies, NavigationCompilation } from "@/03_widgets/movies";
+import { BannerMovies } from "@/03_widgets/movies";
 import { Outlet } from "react-router-dom";
 
 function MainPage() {
@@ -6,7 +6,6 @@ function MainPage() {
     <>
       <div className="container">
         <BannerMovies />
-        <NavigationCompilation />
         <Outlet />
       </div>
     </>

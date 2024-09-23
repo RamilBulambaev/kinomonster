@@ -1,14 +1,15 @@
-import { SearchList } from "@/04_features/searchList";
+import { SearchList } from "@/04_features/SearchList";
 import styles from "./SearchPage.module.css";
 import { useParams } from "react-router-dom";
 import { useGetSearchMovieQuery } from "@/05_entities/SearchMovie/api/searchMovieApi";
+import ErrorMessage from "@/06_shared/ErrorMessage/ErrorMessage";
 
 function SearchPage() {
   const { keyword } = useParams();
   const { data, isLoading, error } = useGetSearchMovieQuery(keyword || "");
 
   if (error) {
-    return <div>Ошибка при отображении информации о фильме</div>;
+    return <ErrorMessage>Ошибка при поиске фильмов</ErrorMessage>;
   }
 
   return (

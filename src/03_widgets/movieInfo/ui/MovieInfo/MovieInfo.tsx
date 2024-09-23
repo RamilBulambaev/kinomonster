@@ -1,11 +1,11 @@
 import { useAppSelector } from "@/01_app/appStore";
 import styles from "./MovieInfo.module.css";
 import Image from "@/06_shared/ui/Image/Image";
-import MovieWatchButtons from "@/05_entities/Movie/ui/MovieWatchButtons/MovieWatchButtons";
-import { AboutMovie } from "@/05_entities/Movie";
+import { AboutMovie, MovieRate, MovieWatchButtons } from "@/05_entities/Movie";
 import { useEffect, useState } from "react";
-import { FavoritesToggleButton } from "@/04_features/favoritesToggleButton";
+import { FavoritesToggleButton } from "@/04_features/FavoritesToggleButton";
 import withSkeleton from "@/06_shared/hocs/withSkeleton";
+import ErrorMessage from "@/06_shared/ErrorMessage/ErrorMessage";
 
 function MovieInfo() {
   const movie = useAppSelector((state) => state.movie.movie);
@@ -19,7 +19,7 @@ function MovieInfo() {
   }, [favorite, movie]);
 
   if (!movie) {
-    return <div>Movie not found</div>;
+    return <ErrorMessage>Информация о фильме не найденна</ErrorMessage>;
   }
 
   return (
@@ -38,20 +38,10 @@ function MovieInfo() {
       </div>
       <div className={styles.right}>
         <FavoritesToggleButton isFav={isFav} movie={movie} />
-        <div className={styles.rate}>
-          <div className={styles["rate-item"]}>
-            <span className={styles["rate-source"]}>Кинопоиск:</span>
-            <span className={styles["rate-value"]}>
-              {movie.ratingKinopoisk} / 10
-            </span>
-          </div>
-          <div className={styles["rate-item"]}>
-            <span className={styles["rate-source"]}>IMDb:</span>
-            <span className={styles["rate-value"]}>
-              {movie.ratingImdb} / 10
-            </span>
-          </div>
-        </div>
+        <MovieRate
+          ratingKinopoisk={movie.ratingKinopoisk}
+          ratingImdb={movie.ratingImdb}
+        />
       </div>
     </>
   );

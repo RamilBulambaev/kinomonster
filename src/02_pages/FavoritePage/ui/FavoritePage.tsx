@@ -1,4 +1,4 @@
-import { FavoritesList } from "@/03_widgets/favoritsList";
+import { FavoritesList } from "@/03_widgets/FavoritesList";
 import styles from "./FavoritePage.module.css";
 
 function FavoritePage() {

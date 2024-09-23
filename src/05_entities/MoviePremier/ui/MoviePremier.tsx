@@ -1,4 +1,4 @@
-import Button from "@/06_shared/ui/button/Button";
+import Button from "@/06_shared/ui/Button/Button";
 import styles from "./MoviePremier.module.css";
 import Image from "@/06_shared/ui/Image/Image";
 import { useGetMovieQuery } from "@/05_entities/Movie/api/movieApi";

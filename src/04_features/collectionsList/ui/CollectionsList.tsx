@@ -1,9 +1,9 @@
-import { Item } from "@/03_widgets/movies/model/types";
+import { IItem } from "@/03_widgets/movies/model/types";
 import styles from "./CollectionsList.module.css";
 import { SearchMovieCard } from "@/05_entities/SearchMovie";
 
 interface CollectionsListProps {
-  films: Item[] | [];
+  films: IItem[] | [];
   isLoading: boolean;
 }
 
