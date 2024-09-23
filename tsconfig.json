@@ -12,7 +12,7 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src", "06_shared/interface/vite-env.d.ts"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
   "files": []
 }
